@@ -1,19 +1,28 @@
-import { paintStatus, setPaintStatus } from './paint';
+import { paintState, setPaintStatus, setStrokeWidth } from './paint';
 
 const canvas: HTMLCanvasElement = document.querySelector('#paint-canvas');
+const rangeElement: HTMLInputElement = document.querySelector('#stroke-range');
 
-if (canvas) {
+if (canvas && rangeElement) {
+  /**
+   * Canvas
+   */
   const ctx: CanvasRenderingContext2D = canvas.getContext('2d');
 
   /**
-   * addEventListener
+   * CTX style
+   */
+  ctx.lineWidth = paintState.get('strokeWidth'); // 선굵기
+  ctx.fillStyle = '#ffffff';
+  /**
+   * Canvas addEventListener
    */
   function onMouseMove(event: MouseEvent) {
     const { offsetX, offsetY } = event;
     const canvasX = offsetX;
     const canvasY = offsetY;
-    console.log({ offsetX, offsetY });
-    if (!paintStatus) {
+
+    if (!paintState.get('paintStatus')) {
       ctx?.beginPath();
       ctx?.moveTo(canvasX, canvasY);
     } else {
@@ -37,4 +46,15 @@ if (canvas) {
   canvas.addEventListener('mousedown', onMouseDown);
   canvas.addEventListener('mouseup', onMouseUp);
   canvas.addEventListener('mouseleave', onMouseLeave);
+
+  /**
+   * RangeElement
+   */
+  rangeElement.addEventListener('change', (event) => {
+    const strokeWidth = (event.target as HTMLInputElement).value;
+
+    setStrokeWidth(Number(strokeWidth));
+    console.log(paintState.get('strokeWidth'));
+    ctx.lineWidth = paintState.get('strokeWidth');
+  });
 }
