@@ -1,4 +1,9 @@
 {
+  "name": "paint-canvas",
+  "author": {
+    "name": "SaeMii",
+    "email": "wrfg12@gmail.com"
+  },
   "scripts": {
     "start": "snowpack dev",
     "build": "snowpack build",
