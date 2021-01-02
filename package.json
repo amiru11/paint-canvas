@@ -9,7 +9,8 @@
     "build": "snowpack build && touch docs/.nojekyll",
     "test": "echo \"This template does not include a test runner by default.\" && exit 1",
     "format": "prettier --write \"src/**/*.{ts,js}\"",
-    "lint": "prettier --check \"src/**/*.{ts,js}\""
+    "lint": "prettier --check \"src/**/*.{ts,js}\"",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "canvas-confetti": "^1.2.0"
@@ -18,6 +19,7 @@
     "@snowpack/plugin-typescript": "^1.1.1",
     "@types/canvas-confetti": "^1.0.0",
     "@types/snowpack-env": "^2.3.2",
+    "gh-pages": "^3.1.0",
     "prettier": "^2.0.5",
     "snowpack": "^2.18.4",
     "typescript": "^4.0.0"
