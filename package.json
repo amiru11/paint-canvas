@@ -4,6 +4,7 @@
     "name": "SaeMii",
     "email": "wrfg12@gmail.com"
   },
+  "homepage": "https://amiru11.github.io/paint-canvas/",
   "scripts": {
     "start": "snowpack dev",
     "build": "snowpack build && touch docs/.nojekyll",
