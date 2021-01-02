@@ -7,7 +7,7 @@
   "homepage": "https://amiru11.github.io/paint-canvas/",
   "scripts": {
     "start": "snowpack dev",
-    "build": "snowpack build && touch docs/.nojekyll",
+    "build": "rm -rf build && rm -rf docs && snowpack build && mv build docs && touch docs/.nojekyll",
     "test": "echo \"This template does not include a test runner by default.\" && exit 1",
     "format": "prettier --write \"src/**/*.{ts,js}\"",
     "lint": "prettier --check \"src/**/*.{ts,js}\"",
