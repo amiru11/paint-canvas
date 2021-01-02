@@ -1,4 +1,4 @@
-# New Project
+# Web Painting with vanilla JS
 
 > ✨ Bootstrapped with Create Snowpack App (CSA).
 
